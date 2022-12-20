@@ -13,6 +13,7 @@ export default {
     createTask: async ({ description, priority }: { description: string; priority?: number }) => {
       try {
         const task = await Task.create({ description, priority });
+        console.log(task);
         return task;
       } catch (err: any) {
         throw new Error(err);

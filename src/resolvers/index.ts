@@ -1,3 +1,3 @@
 import task from './task';
 
-export default [];
+export default [task];

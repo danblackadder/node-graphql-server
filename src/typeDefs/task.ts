@@ -11,8 +11,8 @@ export default gql`
     getTasks: [Task]
   }
   type Mutation {
-    createTask(description: String!, priority: Int): Task!
-    updateTask(description: String!, priority: Int): Task!
-    deleteTask(id: ID!): Task!
+    createTask(description: String!, priority: Int): Task
+    updateTask(description: String!, priority: Int): Task
+    deleteTask(id: ID!): Task
   }
 `;

@@ -1,4 +1,8 @@
+import { ApolloServer } from '@apollo/server';
 import mongoose from 'mongoose';
+
+import typeDefs from '../typeDefs';
+import resolvers from '../resolvers';
 
 mongoose.promise = global.Promise;
 
@@ -21,7 +25,7 @@ async function dropAllCollections() {
   }
 }
 
-export const setup = (databaseName) => {
+export const database = (databaseName) => {
   beforeAll(async () => {
     const url = `mongodb://127.0.0.1/${databaseName}`;
     mongoose.set('strictQuery', false);
@@ -37,3 +41,8 @@ export const setup = (databaseName) => {
     await mongoose.connection.close();
   });
 };
+
+export const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
